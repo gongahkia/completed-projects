@@ -1,4 +1,4 @@
-import random
+import random ##beth: anything beth writes here will be double hashed with her name
 import json
 
 global_dict={}
@@ -7,17 +7,17 @@ global_dict={}
 #global to globalize the local variable 'string'
 #try except to detect invalid inputs
 def password_generator():
-    global string
+    global string ##beth: i don't see the purpose of this variable if you're already degining an empty string in line 18
     try:
         no_characters=int(input('\nHow many characters do you want your password to be?: '))
 
     except:
         print('Invalid input. Please input an integer.')
-        exit()
+        exit() ##beth: this will kill the program if the user does not enter an integer. you should return nothing
 
     string=''
-    for iter_var in range(no_characters):
-        character=chr(random.randint(33,126))
+    for iter_var in range(no_characters): ##beth: maybe put a limit on the number of characters a user can input or it will slow down the program?
+        character=chr(random.randint(33,126)) ##beth: please,,, put spaces in between your equals sign so i can read it better PLEASE
         string=string+character
     print(f'\nYour password is: {string}')
 
@@ -52,8 +52,8 @@ def load_saves():
     global global_dict
     y_or_n=input('\nDo you want to load your past save?\n[Y/N]\n')
     if y_or_n == 'Y' or y_or_n == 'y':
-        file_name=input('\nEnter the name of the local save file: \n')
-        fhand=open(file_name,'r')
+        file_name=input('\nEnter the name of the local save file: \n') ##beth: since u are saving your save files as set names, you dont have to prompt the user for the name of their save file.
+        fhand=open(file_name,'r') ##beth: you can try and except a load save file. once it's done, it will automatically return to your true loop
         global_dict=json.load(fhand)
     else:
         user_input=input('\nWe recommend loading your save file (if available. Otherwise, saved data this session will override past saves. Are you sure you do not want to load your past save? [Y/N]\n')
@@ -82,7 +82,7 @@ def delete_purp_username_password():
         del global_dict[user_input]
     except:
         print('\nEntry not found.\n')
-        exit()
+        exit() ##beth: entering an entry that is not found will immediately end the program... exit() kills the whole program. you can just return nothing =)
     print(f'\nEntry with name {user_input} succesfully removed.')
     for purpose,username_password in global_dict.items():
         username=username_password[0]
@@ -92,10 +92,10 @@ def delete_purp_username_password():
 #the actual program
 print('\nWelcome to Random Password Generator V1.')
 
-while True:
+while True: ##beth: can use elif instead of if to speed up the code -- elif will skip the rest of the conditional checks once one is fulfilled, while if runs through everything. right now the time is negligible but in the future it might not be.
     user_input=input('\nChoose one of the following:\n\nGenerate a password\nSave username and password\nView save log\nAmend save log\nSave changes\nLoad past save\nExit\n\n')
     
-    if user_input=='Generate a password' or user_input=='generate a password':
+    if user_input=='Generate a password' or user_input=='generate a password': ##beth: you can find a few ways to optimize this... for instance if user_input.lower() == "generate a password" would be cleaner
         password_generator()
         user_input2=input('\nDo you want to save this password with a username? [Y/N]\n')
         if user_input2 == 'Y' or user_input2 == 'y':
@@ -103,7 +103,7 @@ while True:
         else:
             print('\nOkay.\n')
     
-    if user_input=='Save username and password' or user_input=='save username and password':
+    if user_input=='Save username and password' or user_input=='save username and password': ##beth: also, it gets really tiring typing out the entire string so perhaps you could number all the options and the user types in numbers to choose instead? 
         try:
             purpose_username_password()
         except:
@@ -124,7 +124,7 @@ while True:
         parse_json()
     
     if user_input=='Exit' or user_input=='exit':
-        user_input3=input('\nHave you saved your changes? [Y/N]\n')
+        user_input3=input('\nHave you saved your changes? [Y/N]\n') ##beth: please clean up your variable names for good practice... user_input3 will not help you in the future
         if user_input3=='Y' or user_input3 == 'y':
             print('\nOkay. See you next time!\n')
             break
