@@ -1,19 +1,19 @@
 fhand=open('Charlie.xml','w')
 
-#
+#function to handle writing of the opening root element
 def root_elemental_opening(input):
     global root_element
     global fhand
     root_element=input1
     fhand.write(f'<{root_element}>\n')
 
-#
+#function to handle writing of the closing root element
 def root_elemental_closing():
     global root_element
     global fhand
     fhand.write(f'</{root_element}>')
 
-#   
+#function to handle writing of the respective strings and their enclosing elements
 def tag_name_content (input, input01):
     global string
     global fhand
