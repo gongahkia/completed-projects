@@ -1,4 +1,4 @@
-def arithmetic_arranger (user_list,condition):
+def arithmetic_arranger (user_list,condition=None):
     output=''
     firstrow_final=''
     secondrow_final=''
