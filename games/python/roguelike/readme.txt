@@ -6,3 +6,5 @@ NOTE: There is more content I'm planning to add to this soon, in other words thi
 I can learn more about pull requests/pushing and commiting of code to the main branch through this haha. Any guidance is appreciated.
 
 -Gong :)
+
+
