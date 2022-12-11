@@ -1,8 +1,0 @@
-CAA 101222
-
-work on threatcon level 3: BOSSFIGHT
-    -add higher spawn rate of targets once certain threshold hit
-add new class objectas boss attack: bombs that decrease health
-    - lobbing bombs in a circle pattern (bomber)
-    - implement bomber radius square logic
-create a time based system that ends the game after 10 minutes
